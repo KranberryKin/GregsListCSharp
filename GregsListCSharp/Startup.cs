@@ -37,6 +37,7 @@ namespace GregsListCSharp
             services.AddScoped<AccountsRepository>();
             services.AddScoped<AccountService>();
             services.AddSingleton<FakeDb>();
+            services.AddTransient<CarsService>();
         }
 
         private void ConfigureCors(IServiceCollection services)

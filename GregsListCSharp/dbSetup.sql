@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS accounts(
-  id VARCHAR(255) NOT NULL primary key COMMENT 'primary key',
+  id int NOT NULL primary key COMMENT 'primary key',
   createdAt DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Time Created',
   updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Last Update',
   name varchar(255) COMMENT 'User Name',
@@ -16,3 +16,6 @@ CREATE TABLE IF NOT EXISTS cars(
   imgUrl VARCHAR(255),
   description VARCHAR(255)
 ) default charset utf8 COMMENT '';
+DROP TABLE accounts;
+SELECT * FROM accounts;
+CREATE 

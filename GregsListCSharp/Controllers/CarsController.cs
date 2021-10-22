@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using CodeWorks.Auth0Provider;
 using GregsListCSharp.Models;
 using GregsListCSharp.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -49,10 +51,12 @@ namespace GregsListCSharp.Controllers
 
     [HttpPost]
 
-    public ActionResult<Car> createCar([FromBody] Car carData)
+    public async Task<ActionResult<Car>> createCar([FromBody] Car carData)
     {
       try
       {
+           Account userInfo = await HttpContext.GetUserInfoAsync<Account>();
+           carData.CreatorId = userInfo.Id;
            var car = _cs.createCar(carData);
            return Ok(car);
       }

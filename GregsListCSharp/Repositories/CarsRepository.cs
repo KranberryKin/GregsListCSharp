@@ -30,7 +30,7 @@ namespace GregsListCSharp.Repositories
 
     internal Car CreateCar(Car carData)
     {
-      throw new NotImplementedException();
+      return null;
     }
 
     internal Car Put(int carId)

@@ -1,25 +1,29 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using GregsListCSharp.Data;
 using GregsListCSharp.Models;
+using GregsListCSharp.Repositories;
 
 namespace GregsListCSharp.Services
 {
   public class CarsService
   {
-    private readonly FakeDb _db;
+    private readonly CarsRepository _cr;
 
-    public CarsService(FakeDb db)
+    public CarsService(CarsRepository cr)
     {
-      _db = db;
+      _cr = cr;
     }
-/// <summary>
-/// Gets all Cars
-/// </summary>
-/// <returns></returns>
+
+    /// <summary>
+    /// Gets all Cars
+    /// </summary>
+    /// <returns></returns>
     public List<Car> getCars()
     {
-      return _db.Cars;
+      // FIXME Call to repository!
+      return null;
     }
 /// <summary>
 /// Gets a single Car by it's Id
@@ -28,20 +32,25 @@ namespace GregsListCSharp.Services
 /// <returns></returns>
     public Car getCars(int carId)
     {
-      return _db.Cars.Find(c => c.Id == carId);
+      // FIXME Call to repository!
+      return null;
     }
 
     public Car createCar(Car carData)
     {
-      carData.Id = _db.GeanerateId();
-      _db.Cars.Add(carData);
-      return carData;
+      // FIXME Call to repository!
+      return null;
     }
 
     public Car editCar(int carId)
     {
-      var car = _db.Cars.Find(c => c.Id == carId);
+      // FIXME Call to repository!
       return null;
+    }
+
+    internal void DeleteCar(int id)
+    {
+      // FIXME Call to repository!
     }
   }
 }

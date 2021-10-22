@@ -19,7 +19,8 @@ namespace GregsListCSharp.Controllers
 
     [HttpGet]
 
-    public ActionResult<List<Car>> getCars() {
+    public ActionResult<List<Car>> getCars()
+    {
         try
       {
         var cars = _cs.getCars();
@@ -61,12 +62,26 @@ namespace GregsListCSharp.Controllers
       }
     }
 
-    [HttpPut("{@id}")]
-    public ActionResult<Car> editCar(int carId){
+    [HttpPut("{id}")]
+    public ActionResult<Car> editCar(int carId)
+    {
       try
       {
         var car = _cs.editCar(carId);
            return Ok(car);
+      }
+      catch (System.Exception e)
+      {
+          return BadRequest(e.Message);
+      }
+    }
+
+    [HttpDelete("{id}")]
+    public ActionResult<Car> Delete(int id){
+      try
+      {
+          _cs.DeleteCar(id);
+           return Ok("Car Deleted");
       }
       catch (System.Exception e)
       {

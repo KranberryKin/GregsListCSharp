@@ -22,8 +22,7 @@ namespace GregsListCSharp.Services
     /// <returns></returns>
     public List<Car> getCars()
     {
-      // FIXME Call to repository!
-      return null;
+      return _cr.GetAll();
     }
 /// <summary>
 /// Gets a single Car by it's Id
@@ -32,25 +31,38 @@ namespace GregsListCSharp.Services
 /// <returns></returns>
     public Car getCars(int carId)
     {
-      // FIXME Call to repository!
-      return null;
+      var foundCar = _cr.GetById(carId);
+      if (foundCar == null)
+      {
+        throw new Exception("Can't find Car");
+      }
+      return foundCar;
     }
-
+/// <summary>
+/// Creates a Car
+/// </summary>
+/// <param name="carData"></param>
+/// <returns></returns>
     public Car createCar(Car carData)
     {
-      // FIXME Call to repository!
-      return null;
+      return _cr.CreateCar(carData);
     }
-
+/// <summary>
+/// Updates A Car
+/// </summary>
+/// <param name="carId"></param>
+/// <returns></returns>
     public Car editCar(int carId)
     {
-      // FIXME Call to repository!
-      return null;
+      return _cr.Put(carId);
     }
-
-    internal void DeleteCar(int id)
+/// <summary>
+/// Removes a Car
+/// </summary>
+/// <param name="id"></param>
+    internal void DeleteCar(int carId)
     {
-      // FIXME Call to repository!
+      _cr.Delete(carId);
     }
   }
 }

@@ -7,4 +7,12 @@ CREATE TABLE IF NOT EXISTS accounts(
   picture varchar(255) COMMENT 'User Picture'
 ) default charset utf8 COMMENT '';
 
-DROP TABLE accounts;
+CREATE TABLE IF NOT EXISTS cars(
+  id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'primary key',
+  make VARCHAR(20),
+  model VARCHAR(20),
+  year int,
+  price int,
+  imgUrl VARCHAR(255),
+  description VARCHAR(255)
+)

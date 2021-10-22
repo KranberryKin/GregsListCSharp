@@ -15,4 +15,4 @@ CREATE TABLE IF NOT EXISTS cars(
   price int,
   imgUrl VARCHAR(255),
   description VARCHAR(255)
-)
+) default charset utf8 COMMENT '';
